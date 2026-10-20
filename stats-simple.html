@@ -59,60 +59,6 @@
       margin-top: 10px;
     }
 
-    .visits-list {
-      background: white;
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-    }
-
-    .visits-list h2 {
-      color: #333;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .visit-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .visit-item:last-child {
-      border-bottom: none;
-    }
-
-    .visit-number {
-      background: #667eea;
-      color: white;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 16px;
-    }
-
-    .visit-details {
-      flex: 1;
-      margin-right: 15px;
-    }
-
-    .visit-date {
-      color: #333;
-      font-weight: 600;
-      font-size: 16px;
-    }
-
-    .visit-time {
-      color: #666;
-      font-size: 14px;
-    }
-
     .config {
       background: white;
       border-radius: 16px;
@@ -167,12 +113,6 @@
       border-radius: 8px;
       margin-bottom: 20px;
     }
-
-    .empty {
-      text-align: center;
-      padding: 40px;
-      color: #999;
-    }
   </style>
 </head>
 <body>
@@ -193,13 +133,6 @@
     <div class="counter">
       <div class="number" id="totalVisits">-</div>
       <div class="label">إجمالي الزيارات</div>
-    </div>
-
-    <div class="visits-list">
-      <h2>📋 سجل الزيارات</h2>
-      <div id="visitsList">
-        <div class="empty">جاري التحميل...</div>
-      </div>
     </div>
   </div>
 
@@ -248,27 +181,11 @@
 
         if (!record) {
           document.getElementById('totalVisits').textContent = '0';
-          document.getElementById('visitsList').innerHTML = '<div class="empty">لا توجد زيارات بعد</div>';
           return;
         }
 
         // تحديث العداد
         document.getElementById('totalVisits').textContent = record.totalVisits || 0;
-
-        // تحديث قائمة الزيارات
-        if (record.visits && record.visits.length > 0) {
-          document.getElementById('visitsList').innerHTML = record.visits.map((visit, index) => `
-            <div class="visit-item">
-              <div class="visit-number">${index + 1}</div>
-              <div class="visit-details">
-                <div class="visit-date">${visit.date}</div>
-                <div class="visit-time">${visit.time}</div>
-              </div>
-            </div>
-          `).join('');
-        } else {
-          document.getElementById('visitsList').innerHTML = '<div class="empty">لا توجد زيارات بعد</div>';
-        }
 
         document.getElementById('error').style.display = 'none';
 
