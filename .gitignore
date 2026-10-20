@@ -1,0 +1,45 @@
+# الملفات الاحتياطية
+*_backup.html
+*_backup.*
+
+# الملفات المؤقتة
+*.tmp
+*.temp
+~*
+
+# المجلدات المؤقتة
+node_modules/
+.env
+.env.local
+
+# سجلات Cloudflare
+.wrangler/
+dist/
+
+# ملفات النظام
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ملفات IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ملفات البيانات الحساسة
+*secret*
+*private*
+*.key
+
+# ملفات نظام Cloudflare القديم (نستخدم JSONBin الآن)
+worker.js
+wrangler.toml
+package.json
+tracker.js
+admin.html
+README_TRACKING.md
+UPLOAD_GUIDE.md
+QUICK_START.txt
+FILES_TO_UPLOAD.txt
