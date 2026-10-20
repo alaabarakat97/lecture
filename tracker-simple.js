@@ -57,11 +57,10 @@ async function addVisit() {
       throw new Error('فشل حفظ البيانات');
     }
 
-    console.log('تمت إضافة الزيارة بنجاح');
-    console.log('إجمالي الزيارات:', currentData.totalVisits);
+    // تمت إضافة الزيارة بنجاح (تم إخفاء الرسائل من Console)
 
   } catch (error) {
-    console.error('خطأ في التتبع:', error);
+    // خطأ في التتبع (تم إخفاء الرسائل من Console)
   }
 }
 
