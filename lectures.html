@@ -50,7 +50,7 @@ body{
 .topbar .spacer{flex:1}
 .counter{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:8px}
 .counter b{color:var(--accent);font-size:14px}
-.visit-counter{font-size:15px;color:var(--accent);font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:6px;margin-right:15px;font-weight:700}
+.visit-counter{font-size:15px;color:var(--accent);font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:6px;margin-right:15px;font-weight:700;background:rgba(14,116,144,0.1);padding:5px 10px;border-radius:8px}
 .progress-bar{
   width:80px;height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden
 }
@@ -4691,10 +4691,21 @@ async function updateVisitCount() {
     if (response.ok) {
       const data = await response.json();
       const totalVisits = data.record?.totalVisits || 0;
-      document.getElementById('visitCount').textContent = totalVisits;
+      const visitCountElement = document.getElementById('visitCount');
+      if (visitCountElement) {
+        visitCountElement.textContent = totalVisits;
+      }
+    } else {
+      const visitCountElement = document.getElementById('visitCount');
+      if (visitCountElement) {
+        visitCountElement.textContent = '!';
+      }
     }
   } catch (error) {
-    document.getElementById('visitCount').textContent = '?';
+    const visitCountElement = document.getElementById('visitCount');
+    if (visitCountElement) {
+      visitCountElement.textContent = '?';
+    }
   }
 }
 
